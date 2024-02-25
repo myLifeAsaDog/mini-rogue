@@ -1,0 +1,477 @@
+[gd_scene load_steps=22 format=3 uid="uid://bip2lpi1ddqjs"]
+
+[ext_resource type="Script" path="res://scenes/main/game.gd" id="1_7gdua"]
+[ext_resource type="Texture2D" uid="uid://b3vw55f7gd25i" path="res://assets/background/level_01.png" id="2_riepx"]
+[ext_resource type="PackedScene" uid="uid://vbjkv07d0gek" path="res://scenes/main/header.tscn" id="3_j75oi"]
+[ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="3_u1ok6"]
+[ext_resource type="PackedScene" uid="uid://b16x1pvvx2uwj" path="res://scenes/main/side_bar.tscn" id="10_kj70u"]
+[ext_resource type="PackedScene" uid="uid://cxiewaiplxfs4" path="res://scenes/main/footer.tscn" id="13_4sdu1"]
+[ext_resource type="PackedScene" uid="uid://bgi5a07exjxef" path="res://scenes/main/room_map.tscn" id="14_7lvnx"]
+[ext_resource type="PackedScene" uid="uid://brcl8lx5wwxd4" path="res://scenes/map/map.tscn" id="14_bjw7i"]
+[ext_resource type="PackedScene" uid="uid://21rti4w1nduk" path="res://scenes/game_start/start.tscn" id="15_cf6s3"]
+[ext_resource type="PackedScene" uid="uid://eg25j2e1jl51" path="res://scenes/game_end/game_end.tscn" id="17_rhufg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fcx4"]
+bg_color = Color(0, 0, 0, 0.847059)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="Animation" id="Animation_j4vjk"]
+resource_name = "button_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_d17vi"]
+resource_name = "button_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_jf07g"]
+resource_name = "card_and_button_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cards:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cards:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_oloqu"]
+resource_name = "card_and_info_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cards:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cards:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Information:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 376), Vector2(48, 336)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Information:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Information:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_btr2w"]
+resource_name = "card_and_info_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cards:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-400, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cards:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Information:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 336), Vector2(48, 296)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Information:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_erc3i"]
+resource_name = "card_slide_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cards:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cards:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_l5upi"]
+resource_name = "card_slide_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cards:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-400, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cards:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_vwsbg"]
+resource_name = "hide_info"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Information:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 336), Vector2(48, 296)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Information:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Information:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gref5"]
+resource_name = "show_info"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Information:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 376), Vector2(48, 336)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Information:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Information:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mohg1"]
+_data = {
+"button_in": SubResource("Animation_j4vjk"),
+"button_out": SubResource("Animation_d17vi"),
+"card_and_button_in": SubResource("Animation_jf07g"),
+"card_and_info_in": SubResource("Animation_oloqu"),
+"card_and_info_out": SubResource("Animation_btr2w"),
+"card_slide_in": SubResource("Animation_erc3i"),
+"card_slide_out": SubResource("Animation_l5upi"),
+"hide_info": SubResource("Animation_vwsbg"),
+"show_info": SubResource("Animation_gref5")
+}
+
+[node name="Main" type="Node"]
+
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource("1_7gdua")
+
+[node name="BackGround" type="TextureRect" parent="Game"]
+modulate = Color(0.196078, 0.25098, 0.501961, 1)
+offset_right = 360.0
+offset_bottom = 800.0
+texture = ExtResource("2_riepx")
+metadata/_edit_group_ = true
+
+[node name="Header" parent="Game" instance=ExtResource("3_j75oi")]
+
+[node name="RoomMap" parent="Game" instance=ExtResource("14_7lvnx")]
+position = Vector2(0, -16)
+
+[node name="Footer" parent="Game" instance=ExtResource("13_4sdu1")]
+
+[node name="CardContainer" type="Control" parent="Game"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_group_ = true
+
+[node name="Cards" type="Control" parent="Game/CardContainer"]
+anchors_preset = 0
+offset_left = 400.0
+offset_right = 440.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ButtonContainer" type="Control" parent="Game/CardContainer"]
+layout_direction = 2
+anchors_preset = 0
+offset_left = 48.0
+offset_top = 272.0
+offset_right = 312.0
+offset_bottom = 552.0
+
+[node name="Information" type="Label" parent="Game/CardContainer"]
+visible = false
+layout_mode = 0
+offset_left = 48.0
+offset_top = 336.0
+offset_right = 312.0
+offset_bottom = 384.0
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("3_u1ok6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6fcx4")
+text = "GAME START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/CardContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_mohg1")
+}
+
+[node name="Map" parent="Game" instance=ExtResource("14_bjw7i")]
+
+[node name="StartScreen" parent="." instance=ExtResource("15_cf6s3")]
+visible = false
+
+[node name="EndScreen" parent="." instance=ExtResource("17_rhufg")]
+visible = false
+
+[node name="SideBar" parent="." instance=ExtResource("10_kj70u")]
+
+[node name="GameCamera" type="Camera2D" parent="."]
+anchor_mode = 0
+process_callback = 0
+limit_left = 0
+limit_top = 0
+limit_right = 360
+limit_bottom = 800
+
+[connection signal="change_room" from="Game" to="Game/RoomMap" method="_on_change_room"]
+[connection signal="show_map" from="Game/Footer" to="Game/Map" method="_on_show_map"]
+[connection signal="set_difficulty" from="StartScreen" to="Game" method="_on_set_difficulty"]

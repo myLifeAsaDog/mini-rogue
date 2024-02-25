@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccic00gb1otde"]
+
+[ext_resource type="Script" path="res://scenes/card/boss_battle.gd" id="1_5k12h"]
+[ext_resource type="Texture2D" uid="uid://cimpapd26rndt" path="res://assets/cards/Card_Backface.png" id="2_sb5j4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivmxs"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gymse"]
+bg_color = Color(0.88, 0.42856, 0.1672, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="BossBattle" type="Node2D"]
+script = ExtResource("1_5k12h")
+
+[node name="BossBattleCard" type="TextureRect" parent="."]
+offset_left = 68.0
+offset_top = 200.0
+offset_right = 292.0
+offset_bottom = 568.0
+texture = ExtResource("2_sb5j4")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 56.0
+offset_top = 176.0
+offset_right = 304.0
+offset_bottom = 186.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ivmxs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gymse")
+step = 1.0
+show_percentage = false
+
+[connection signal="gui_input" from="BossBattleCard" to="." method="_on_input"]

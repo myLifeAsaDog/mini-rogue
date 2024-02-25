@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6gyicq12h7hk"]
+
+[ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="1_tjt43"]
+[ext_resource type="StyleBox" uid="uid://dy80d2aa65rmi" path="res://assets/styles/button_normal.tres" id="2_tuyba"]
+[ext_resource type="StyleBox" uid="uid://c1x6i7xhmxgm7" path="res://assets/styles/button_hover.tres" id="3_7ffhd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4txg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_homp8"]
+
+[node name="Button" type="Button"]
+layout_direction = 2
+offset_top = 8.0
+offset_right = 264.0
+offset_bottom = 56.0
+auto_translate = false
+localize_numeral_system = false
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.623529, 0.176471, 1)
+theme_override_fonts/font = ExtResource("1_tjt43")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y4txg")
+theme_override_styles/hover = ExtResource("3_7ffhd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_homp8")
+theme_override_styles/normal = ExtResource("2_tuyba")
+keep_pressed_outside = true
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "GAME START"

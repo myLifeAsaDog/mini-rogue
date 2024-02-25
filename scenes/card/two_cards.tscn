@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cim3qsjpjgvp8"]
+
+[ext_resource type="Texture2D" uid="uid://cimpapd26rndt" path="res://assets/cards/Card_Backface.png" id="1_31oaj"]
+[ext_resource type="Script" path="res://scenes/card/two_cards.gd" id="1_aup6b"]
+
+[node name="TwoCards" type="Node2D"]
+script = ExtResource("1_aup6b")
+metadata/firstcard = 0
+metadata/secondcard = 0
+
+[node name="FirstCard" type="TextureRect" parent="."]
+offset_left = 32.0
+offset_top = 148.0
+offset_right = 256.0
+offset_bottom = 516.0
+texture = ExtResource("1_31oaj")
+
+[node name="SecondCard" type="TextureRect" parent="."]
+offset_left = 104.0
+offset_top = 216.0
+offset_right = 328.0
+offset_bottom = 584.0
+texture = ExtResource("1_31oaj")

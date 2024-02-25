@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgi5a07exjxef"]
+
+[ext_resource type="Script" path="res://scenes/main/room_map.gd" id="1_0nb38"]
+[ext_resource type="Texture2D" uid="uid://c6igdsafh5yrv" path="res://assets/rooms/room_map.png" id="1_lg66f"]
+[ext_resource type="Texture2D" uid="uid://b3njsx0jsf42q" path="res://assets/rooms/visited_room.png" id="3_ci76w"]
+[ext_resource type="Texture2D" uid="uid://bp8kv0nib0t1n" path="res://assets/rooms/room.png" id="3_sdnyw"]
+[ext_resource type="Texture2D" uid="uid://c2eat1ohyqrjn" path="res://assets/rooms/line.png" id="4_ylukn"]
+
+[node name="RoomMap" type="Node2D"]
+script = ExtResource("1_0nb38")
+
+[node name="Route" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+texture_filter = 1
+offset_left = 52.0
+offset_top = 636.0
+offset_right = 276.0
+offset_bottom = 758.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("1_lg66f")
+metadata/_edit_use_anchors_ = true
+
+[node name="Room_01" type="TextureRect" parent="Route"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_top = 36.0
+offset_right = 34.0
+offset_bottom = 86.0
+texture = ExtResource("3_ci76w")
+
+[node name="Room_02" type="TextureRect" parent="Route"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 56.0
+offset_right = 90.0
+offset_bottom = 50.0
+texture = ExtResource("3_ci76w")
+
+[node name="Room_03" type="TextureRect" parent="Route"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 56.0
+offset_top = 72.0
+offset_right = 90.0
+offset_bottom = 122.0
+texture = ExtResource("3_ci76w")
+
+[node name="Room_04" type="TextureRect" parent="Route"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 36.0
+offset_right = 146.0
+offset_bottom = 86.0
+texture = ExtResource("3_ci76w")
+
+[node name="Room_05" type="TextureRect" parent="Route"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_right = 202.0
+offset_bottom = 50.0
+texture = ExtResource("3_ci76w")
+
+[node name="Room_06" type="TextureRect" parent="Route"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = 72.0
+offset_right = 202.0
+offset_bottom = 122.0
+texture = ExtResource("3_ci76w")
+
+[node name="ExitPath" type="TextureRect" parent="Route"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 59.0
+offset_right = 258.0
+offset_bottom = 63.0
+texture = ExtResource("4_ylukn")
+
+[node name="BossRoom" type="TextureRect" parent="Route"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 224.0
+offset_top = 36.0
+offset_right = 258.0
+offset_bottom = 86.0
+texture = ExtResource("3_sdnyw")
+
+[node name="BossVisited" type="TextureRect" parent="Route"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 224.0
+offset_top = 36.0
+offset_right = 258.0
+offset_bottom = 86.0
+texture = ExtResource("3_ci76w")

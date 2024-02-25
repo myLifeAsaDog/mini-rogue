@@ -1,0 +1,356 @@
+[gd_scene load_steps=19 format=3 uid="uid://21rti4w1nduk"]
+
+[ext_resource type="Script" path="res://scenes/game_start/start.gd" id="1_bjq08"]
+[ext_resource type="Texture2D" uid="uid://dhmf1xaqaxt8c" path="res://assets/background/game start.png" id="2_j73xs"]
+[ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="3_734ki"]
+[ext_resource type="StyleBox" uid="uid://srmhut5l8qlq" path="res://assets/styles/start_button_hover.tres" id="5_yk6ho"]
+[ext_resource type="Texture2D" uid="uid://crl17k1lawx3k" path="res://assets/cards/Card_GameStart.png" id="6_8a3mu"]
+[ext_resource type="Texture2D" uid="uid://cimpapd26rndt" path="res://assets/cards/Card_Backface.png" id="7_3btpg"]
+[ext_resource type="PackedScene" uid="uid://cobvxme2tthib" path="res://scenes/game_start/credits.tscn" id="7_fhnj1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dyail"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rui2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxh4q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64lge"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yae1q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky0u2"]
+
+[sub_resource type="Animation" id="Animation_k83on"]
+resource_name = "back_to_title"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Card/FrontFace:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Card/BackFace:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4tq5a"]
+resource_name = "credits_hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jvs3h"]
+resource_name = "credits_show"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Credits:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 800), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5svph"]
+resource_name = "game_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Card/BackFace:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Card/FrontFace:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -800)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8cevt"]
+_data = {
+"back_to_title": SubResource("Animation_k83on"),
+"credits_hide": SubResource("Animation_4tq5a"),
+"credits_show": SubResource("Animation_jvs3h"),
+"game_start": SubResource("Animation_5svph")
+}
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_bjq08")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackGround" type="TextureRect" parent="Control"]
+modulate = Color(0.160784, 0.317647, 0.807843, 1)
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 800.0
+texture = ExtResource("2_j73xs")
+metadata/_edit_group_ = true
+
+[node name="DesignedBy" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 344.0
+offset_bottom = 168.0
+theme_override_fonts/font = ExtResource("3_734ki")
+theme_override_font_sizes/font_size = 18
+text = "Designed by
+Paolo Di Stefano
+Gabriel Gendron"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Difficalty" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Casual" type="Button" parent="Control/Difficalty"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 448.0
+offset_right = 272.0
+offset_bottom = 488.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_734ki")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dyail")
+theme_override_styles/hover = ExtResource("5_yk6ho")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1rui2")
+text = "CASUAL"
+
+[node name="Normal" type="Button" parent="Control/Difficalty"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 488.0
+offset_right = 272.0
+offset_bottom = 528.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_734ki")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxh4q")
+theme_override_styles/hover = ExtResource("5_yk6ho")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64lge")
+text = "NORMAL"
+
+[node name="Hard" type="Button" parent="Control/Difficalty"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 528.0
+offset_right = 272.0
+offset_bottom = 568.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_734ki")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxh4q")
+theme_override_styles/hover = ExtResource("5_yk6ho")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yae1q")
+text = "HARD"
+
+[node name="Impossible" type="Button" parent="Control/Difficalty"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 568.0
+offset_right = 272.0
+offset_bottom = 608.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_734ki")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxh4q")
+theme_override_styles/hover = ExtResource("5_yk6ho")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ky0u2")
+text = "IMPOSSIBLE"
+
+[node name="Credits" type="Button" parent="Control/Difficalty"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 608.0
+offset_right = 272.0
+offset_bottom = 648.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_734ki")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxh4q")
+theme_override_styles/hover = ExtResource("5_yk6ho")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ky0u2")
+text = "CREDITS"
+
+[node name="Version" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 106.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_734ki")
+theme_override_font_sizes/font_size = 14
+text = "version 1.0.4"
+vertical_alignment = 1
+
+[node name="Card" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FrontFace" type="TextureRect" parent="Card"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 200.0
+offset_right = 292.0
+offset_bottom = 568.0
+scale = Vector2(1e-05, 1)
+pivot_offset = Vector2(112, 188)
+mouse_default_cursor_shape = 2
+texture = ExtResource("6_8a3mu")
+
+[node name="BackFace" type="TextureRect" parent="Card"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 200.0
+offset_right = 292.0
+offset_bottom = 568.0
+pivot_offset = Vector2(112, 188)
+mouse_default_cursor_shape = 2
+texture = ExtResource("7_3btpg")
+
+[node name="Credits" parent="." instance=ExtResource("7_fhnj1")]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8cevt")
+}
+
+[connection signal="pressed" from="Control/Difficalty/Casual" to="." method="_on_casual_pressed"]
+[connection signal="pressed" from="Control/Difficalty/Normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="Control/Difficalty/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="Control/Difficalty/Impossible" to="." method="_on_impossible_pressed"]
+[connection signal="pressed" from="Control/Difficalty/Credits" to="Credits" method="_on_credits_button_pressed"]
+[connection signal="gui_input" from="Card" to="." method="_on_card_input"]

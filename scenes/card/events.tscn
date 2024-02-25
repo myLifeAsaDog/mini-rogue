@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://mwhmvjqpdck2"]
+
+[ext_resource type="Texture2D" uid="uid://vdwtuglq2pkd" path="res://assets/cards/Card_Events.png" id="1_cn6tu"]
+[ext_resource type="Script" path="res://scenes/card/events.gd" id="1_xu7c1"]
+
+[node name="Events" type="Node2D"]
+script = ExtResource("1_xu7c1")
+
+[node name="EventsCard" type="TextureRect" parent="."]
+offset_left = 68.0
+offset_top = 200.0
+offset_right = 292.0
+offset_bottom = 568.0
+texture = ExtResource("1_cn6tu")
+
+[connection signal="gui_input" from="EventsCard" to="." method="_on_input"]

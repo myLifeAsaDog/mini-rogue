@@ -1,0 +1,678 @@
+[gd_scene load_steps=30 format=3 uid="uid://bip2lpi1ddqjs"]
+
+[ext_resource type="Script" path="res://scenes/main/game.gd" id="1_7gdua"]
+[ext_resource type="Texture2D" uid="uid://b3225wjgbxw4p" path="res://assets/icons/HpIcon.png" id="3_1qiw6"]
+[ext_resource type="Texture2D" uid="uid://nyo86mrksbm5" path="res://assets/icons/Fire.png" id="3_m6apn"]
+[ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="3_u1ok6"]
+[ext_resource type="Texture2D" uid="uid://4crklbjqo1dx" path="res://assets/icons/GoldIcon.png" id="4_16emq"]
+[ext_resource type="Texture2D" uid="uid://dtxtfvjo60q00" path="res://assets/icons/Ice.png" id="4_s170x"]
+[ext_resource type="Texture2D" uid="uid://g01aa18g1pd4" path="res://assets/icons/Poison.png" id="5_dapli"]
+[ext_resource type="Texture2D" uid="uid://ddjqlracwheuy" path="res://assets/icons/FoodIcon.png" id="5_jjvlv"]
+[ext_resource type="Texture2D" uid="uid://dtu3fxgi16q6y" path="res://assets/icons/ArmorIcon.png" id="6_ep3bv"]
+[ext_resource type="Texture2D" uid="uid://bf4f3jlcoddnv" path="res://assets/background/level_05.png" id="6_fh1oq"]
+[ext_resource type="Texture2D" uid="uid://dss5ynl18kibd" path="res://assets/icons/Heal.png" id="6_j6hpx"]
+[ext_resource type="Texture2D" uid="uid://o81uui42qwcd" path="res://assets/icons/XPIcon.png" id="7_y6yr1"]
+[ext_resource type="PackedScene" uid="uid://cxiewaiplxfs4" path="res://scenes/main/footer.tscn" id="13_4sdu1"]
+[ext_resource type="PackedScene" uid="uid://bgi5a07exjxef" path="res://scenes/main/room_map.tscn" id="14_7lvnx"]
+[ext_resource type="PackedScene" uid="uid://brcl8lx5wwxd4" path="res://scenes/map/map.tscn" id="14_bjw7i"]
+[ext_resource type="PackedScene" uid="uid://21rti4w1nduk" path="res://scenes/game_start/start.tscn" id="15_cf6s3"]
+[ext_resource type="PackedScene" uid="uid://eg25j2e1jl51" path="res://scenes/game_end/game_end.tscn" id="17_rhufg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23epl"]
+bg_color = Color(0, 0, 0, 0)
+border_width_bottom = 1
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fcx4"]
+bg_color = Color(0, 0, 0, 0.784314)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="Animation" id="Animation_j4vjk"]
+resource_name = "button_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 192), Vector2(48, 152)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_d17vi"]
+resource_name = "button_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 152), Vector2(48, 112)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_jf07g"]
+resource_name = "card_and_button_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 272), Vector2(48, 232)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cards:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cards:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_oloqu"]
+resource_name = "card_and_info_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cards:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cards:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Information:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 376), Vector2(48, 336)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Information:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Information:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_btr2w"]
+resource_name = "card_and_info_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cards:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-400, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cards:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Information:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 336), Vector2(48, 296)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Information:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_erc3i"]
+resource_name = "card_slide_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cards:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cards:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_l5upi"]
+resource_name = "card_slide_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cards:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-400, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cards:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_vwsbg"]
+resource_name = "hide_info"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Information:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 336), Vector2(48, 296)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Information:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Information:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gref5"]
+resource_name = "show_info"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Information:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 376), Vector2(48, 336)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Information:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Information:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mohg1"]
+_data = {
+"button_in": SubResource("Animation_j4vjk"),
+"button_out": SubResource("Animation_d17vi"),
+"card_and_button_in": SubResource("Animation_jf07g"),
+"card_and_info_in": SubResource("Animation_oloqu"),
+"card_and_info_out": SubResource("Animation_btr2w"),
+"card_slide_in": SubResource("Animation_erc3i"),
+"card_slide_out": SubResource("Animation_l5upi"),
+"hide_info": SubResource("Animation_vwsbg"),
+"show_info": SubResource("Animation_gref5")
+}
+
+[node name="Main" type="Node"]
+
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource("1_7gdua")
+
+[node name="BackGround" type="TextureRect" parent="Game"]
+modulate = Color(0.196078, 0.25098, 0.501961, 1)
+offset_right = 360.0
+offset_bottom = 800.0
+texture = ExtResource("6_fh1oq")
+metadata/_edit_group_ = true
+
+[node name="Header" type="Node2D" parent="Game"]
+position = Vector2(0, -40)
+metadata/_edit_group_ = true
+
+[node name="Rank" type="Label" parent="Game/Header"]
+offset_left = 15.0
+offset_top = 48.0
+offset_right = 345.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("3_u1ok6")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_23epl")
+text = "Rank
+"
+vertical_alignment = 1
+
+[node name="HP" type="TextureRect" parent="Game/Header"]
+texture_filter = 1
+offset_left = 24.0
+offset_top = 84.0
+offset_right = 40.0
+offset_bottom = 98.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "HP"
+texture = ExtResource("3_1qiw6")
+
+[node name="Number" type="Label" parent="Game/Header/HP"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = -7.0
+offset_right = 41.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("3_u1ok6")
+theme_override_font_sizes/font_size = 16
+text = "00"
+vertical_alignment = 1
+
+[node name="Gold" type="TextureRect" parent="Game/Header"]
+texture_filter = 1
+offset_left = 92.0
+offset_top = 82.0
+offset_right = 110.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "GOLD"
+texture = ExtResource("4_16emq")
+
+[node name="Number" type="Label" parent="Game/Header/Gold"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = -4.0
+offset_right = 41.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_u1ok6")
+theme_override_font_sizes/font_size = 16
+text = "00"
+vertical_alignment = 1
+
+[node name="Food" type="TextureRect" parent="Game/Header"]
+texture_filter = 1
+offset_left = 160.0
+offset_top = 84.0
+offset_right = 174.0
+offset_bottom = 98.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "FOOD"
+texture = ExtResource("5_jjvlv")
+
+[node name="Number" type="Label" parent="Game/Header/Food"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -7.0
+offset_right = 37.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("3_u1ok6")
+theme_override_font_sizes/font_size = 16
+text = "00"
+vertical_alignment = 1
+
+[node name="Armor" type="TextureRect" parent="Game/Header"]
+texture_filter = 1
+offset_left = 227.0
+offset_top = 84.0
+offset_right = 241.0
+offset_bottom = 98.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "ARMOR"
+texture = ExtResource("6_ep3bv")
+
+[node name="Number" type="Label" parent="Game/Header/Armor"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -7.0
+offset_right = 36.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("3_u1ok6")
+theme_override_font_sizes/font_size = 16
+text = "00"
+vertical_alignment = 1
+
+[node name="XP" type="TextureRect" parent="Game/Header"]
+texture_filter = 1
+offset_left = 291.0
+offset_top = 82.0
+offset_right = 307.0
+offset_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "XP"
+texture = ExtResource("7_y6yr1")
+
+[node name="Number" type="Label" parent="Game/Header/XP"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = -4.0
+offset_right = 39.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_u1ok6")
+theme_override_font_sizes/font_size = 16
+text = "00"
+vertical_alignment = 1
+
+[node name="FireSpell" type="TextureRect" parent="Game/Header"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+offset_left = 192.0
+offset_top = 112.0
+offset_right = 224.0
+offset_bottom = 144.0
+texture = ExtResource("3_m6apn")
+
+[node name="IceSpell" type="TextureRect" parent="Game/Header"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+offset_left = 232.0
+offset_top = 112.0
+offset_right = 264.0
+offset_bottom = 144.0
+texture = ExtResource("4_s170x")
+
+[node name="PoisonSpell" type="TextureRect" parent="Game/Header"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+offset_left = 272.0
+offset_top = 112.0
+offset_right = 304.0
+offset_bottom = 144.0
+texture = ExtResource("5_dapli")
+
+[node name="HealSpell" type="TextureRect" parent="Game/Header"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+offset_left = 312.0
+offset_top = 112.0
+offset_right = 344.0
+offset_bottom = 144.0
+texture = ExtResource("6_j6hpx")
+
+[node name="Footer" parent="Game" instance=ExtResource("13_4sdu1")]
+
+[node name="CardContainer" type="Control" parent="Game"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_group_ = true
+
+[node name="Cards" type="Control" parent="Game/CardContainer"]
+anchors_preset = 0
+offset_right = 39.9999
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="ButtonContainer" type="Control" parent="Game/CardContainer"]
+visible = false
+layout_direction = 2
+anchors_preset = 0
+offset_left = 48.0
+offset_top = 152.0
+offset_right = 312.0
+offset_bottom = 432.0
+
+[node name="Information" type="Label" parent="Game/CardContainer"]
+visible = false
+layout_mode = 0
+offset_left = 48.0
+offset_top = 336.0
+offset_right = 312.0
+offset_bottom = 384.0
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("3_u1ok6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6fcx4")
+text = "GAME START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/CardContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_mohg1")
+}
+
+[node name="RoomMap" parent="Game" instance=ExtResource("14_7lvnx")]
+
+[node name="Map" parent="Game" instance=ExtResource("14_bjw7i")]
+
+[node name="StartScreen" parent="." instance=ExtResource("15_cf6s3")]
+visible = false
+
+[node name="EndScreen" parent="." instance=ExtResource("17_rhufg")]
+visible = false
+
+[node name="GameCamera" type="Camera2D" parent="."]
+top_level = true
+anchor_mode = 0
+limit_left = 0
+limit_top = 0
+limit_right = 360
+limit_bottom = 800
+
+[connection signal="change_room" from="Game" to="Game/RoomMap" method="_on_change_room"]
+[connection signal="show_map" from="Game/Footer" to="Game/Map" method="_on_show_map"]
+[connection signal="set_difficulty" from="StartScreen" to="Game" method="_on_set_difficulty"]

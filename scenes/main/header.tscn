@@ -1,0 +1,246 @@
+[gd_scene load_steps=15 format=3 uid="uid://vbjkv07d0gek"]
+
+[ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="1_loucd"]
+[ext_resource type="Texture2D" uid="uid://b3225wjgbxw4p" path="res://assets/icons/HpIcon.png" id="2_ricxe"]
+[ext_resource type="Texture2D" uid="uid://4crklbjqo1dx" path="res://assets/icons/GoldIcon.png" id="3_qsldn"]
+[ext_resource type="Texture2D" uid="uid://ddjqlracwheuy" path="res://assets/icons/FoodIcon.png" id="4_br821"]
+[ext_resource type="Texture2D" uid="uid://dtu3fxgi16q6y" path="res://assets/icons/ArmorIcon.png" id="5_ftjso"]
+[ext_resource type="Texture2D" uid="uid://o81uui42qwcd" path="res://assets/icons/XPIcon.png" id="6_0p1yj"]
+[ext_resource type="Texture2D" uid="uid://nyo86mrksbm5" path="res://assets/icons/Fire.png" id="7_7on5b"]
+[ext_resource type="Texture2D" uid="uid://5migbjs3tkg5" path="res://assets/icons/Max.png" id="8_o2te0"]
+[ext_resource type="Texture2D" uid="uid://dtxtfvjo60q00" path="res://assets/icons/Ice.png" id="8_pqg06"]
+[ext_resource type="Texture2D" uid="uid://g01aa18g1pd4" path="res://assets/icons/Poison.png" id="9_0p57j"]
+[ext_resource type="Texture2D" uid="uid://dss5ynl18kibd" path="res://assets/icons/Heal.png" id="10_2n6qw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byla8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uknqw"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63x2e"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[node name="Header" type="Node2D"]
+position = Vector2(0, -40)
+
+[node name="OptionButton" type="Button" parent="."]
+offset_left = 272.0
+offset_top = 56.0
+offset_right = 345.0
+offset_bottom = 80.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_loucd")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_byla8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uknqw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_63x2e")
+text = "OPTIONS"
+
+[node name="Rank" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 56.0
+offset_right = 342.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("1_loucd")
+text = "Rank 1
+"
+vertical_alignment = 1
+
+[node name="HP" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 24.0
+offset_top = 98.0
+offset_right = 40.0
+offset_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "HP"
+texture = ExtResource("2_ricxe")
+
+[node name="Number" type="Label" parent="HP"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = -7.0
+offset_right = 41.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("1_loucd")
+theme_override_font_sizes/font_size = 16
+text = "00"
+vertical_alignment = 1
+
+[node name="Gold" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 92.0
+offset_top = 96.0
+offset_right = 110.0
+offset_bottom = 114.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "GOLD"
+texture = ExtResource("3_qsldn")
+
+[node name="Number" type="Label" parent="Gold"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = -4.0
+offset_right = 41.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("1_loucd")
+theme_override_font_sizes/font_size = 16
+text = "00"
+vertical_alignment = 1
+
+[node name="Food" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 160.0
+offset_top = 98.0
+offset_right = 174.0
+offset_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "FOOD"
+texture = ExtResource("4_br821")
+
+[node name="Number" type="Label" parent="Food"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -7.0
+offset_right = 37.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("1_loucd")
+theme_override_font_sizes/font_size = 16
+text = "00"
+vertical_alignment = 1
+
+[node name="Armor" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 227.0
+offset_top = 98.0
+offset_right = 241.0
+offset_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "ARMOR"
+texture = ExtResource("5_ftjso")
+
+[node name="Number" type="Label" parent="Armor"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -7.0
+offset_right = 36.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("1_loucd")
+theme_override_font_sizes/font_size = 16
+text = "00"
+vertical_alignment = 1
+
+[node name="XP" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 291.0
+offset_top = 96.0
+offset_right = 307.0
+offset_bottom = 115.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tooltip_text = "XP"
+texture = ExtResource("6_0p1yj")
+
+[node name="Number" type="Label" parent="XP"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = -4.0
+offset_right = 39.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("1_loucd")
+theme_override_font_sizes/font_size = 16
+text = "00"
+vertical_alignment = 1
+
+[node name="FireSpell" type="TextureButton" parent="."]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+offset_left = 192.0
+offset_top = 126.0
+offset_right = 224.0
+offset_bottom = 158.0
+tooltip_text = "Fire Spell"
+texture_normal = ExtResource("7_7on5b")
+
+[node name="Max" type="TextureRect" parent="FireSpell"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 34.0
+offset_right = 28.0
+offset_bottom = 43.0
+texture = ExtResource("8_o2te0")
+
+[node name="IceSpell" type="TextureButton" parent="."]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+offset_left = 232.0
+offset_top = 126.0
+offset_right = 264.0
+offset_bottom = 158.0
+tooltip_text = "Ice Spell"
+texture_normal = ExtResource("8_pqg06")
+
+[node name="Max" type="TextureRect" parent="IceSpell"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 34.0
+offset_right = 28.0
+offset_bottom = 43.0
+texture = ExtResource("8_o2te0")
+
+[node name="PoisonSpell" type="TextureButton" parent="."]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+offset_left = 272.0
+offset_top = 126.0
+offset_right = 304.0
+offset_bottom = 158.0
+tooltip_text = "Poison Spell"
+texture_normal = ExtResource("9_0p57j")
+
+[node name="Max" type="TextureRect" parent="PoisonSpell"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 34.0
+offset_right = 28.0
+offset_bottom = 43.0
+texture = ExtResource("8_o2te0")
+
+[node name="HealSpell" type="TextureButton" parent="."]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+offset_left = 312.0
+offset_top = 126.0
+offset_right = 344.0
+offset_bottom = 158.0
+tooltip_text = "Heal Spell"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("10_2n6qw")
+
+[node name="Max" type="TextureRect" parent="HealSpell"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 34.0
+offset_right = 28.0
+offset_bottom = 43.0
+texture = ExtResource("8_o2te0")

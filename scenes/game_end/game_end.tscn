@@ -1,0 +1,386 @@
+[gd_scene load_steps=11 format=3 uid="uid://eg25j2e1jl51"]
+
+[ext_resource type="Script" path="res://scenes/game_end/game_end.gd" id="1_2pi6p"]
+[ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="2_vx5rh"]
+[ext_resource type="StyleBox" uid="uid://srmhut5l8qlq" path="res://assets/styles/start_button_hover.tres" id="3_toatm"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ogore"]
+content_margin_left = 8.0
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_yxw1h"]
+content_margin_left = 8.0
+color = Color(1, 1, 1, 0.545098)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+vertical = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_12glr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dkgx5"]
+
+[sub_resource type="Animation" id="Animation_trlci"]
+resource_name = "end_screen_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -800), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0mk6v"]
+resource_name = "end_screen_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rrukk"]
+_data = {
+"end_screen_in": SubResource("Animation_trlci"),
+"end_screen_out": SubResource("Animation_0mk6v")
+}
+
+[node name="End" type="Node2D"]
+script = ExtResource("1_2pi6p")
+
+[node name="BackGround" type="TextureRect" parent="."]
+modulate = Color(0.196078, 0.25098, 0.501961, 1)
+offset_right = 360.0
+offset_bottom = 800.0
+
+[node name="VictoryPoint" type="Label" parent="."]
+offset_left = 65.0
+offset_top = 80.0
+offset_right = 296.0
+offset_bottom = 151.0
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 24
+text = "VICTORY POINT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="VictoryPoint"]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 231.0
+offset_bottom = 159.0
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 48
+text = "888"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 135.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DifficultyLevel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 160.0
+offset_right = 160.0
+offset_bottom = 187.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+text = "DIFFICULTY"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="Control/DifficultyLevel"]
+layout_mode = 0
+offset_left = 105.0
+offset_right = 205.0
+offset_bottom = 27.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxLine_ogore")
+text = "888"
+vertical_alignment = 1
+
+[node name="AreaReached" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 195.0
+offset_right = 160.0
+offset_bottom = 222.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+text = "AREA REACHED"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="Control/AreaReached"]
+layout_mode = 0
+offset_left = 130.0
+offset_right = 230.0
+offset_bottom = 27.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxLine_yxw1h")
+text = "888"
+vertical_alignment = 1
+
+[node name="BossSlayed" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 230.0
+offset_right = 160.0
+offset_bottom = 257.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+text = "BOSS SLAYED"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="Control/BossSlayed"]
+layout_mode = 0
+offset_left = 116.0
+offset_right = 216.0
+offset_bottom = 27.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxLine_yxw1h")
+text = "888"
+vertical_alignment = 1
+
+[node name="Rank" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 265.0
+offset_right = 160.0
+offset_bottom = 292.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+text = "RANK"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="Control/Rank"]
+layout_mode = 0
+offset_left = 105.0
+offset_right = 205.0
+offset_bottom = 27.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxLine_yxw1h")
+text = "888"
+vertical_alignment = 1
+
+[node name="Health" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 300.0
+offset_right = 160.0
+offset_bottom = 327.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+text = "HEALTH"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="Control/Health"]
+layout_mode = 0
+offset_left = 105.0
+offset_right = 205.0
+offset_bottom = 27.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxLine_yxw1h")
+text = "888"
+vertical_alignment = 1
+
+[node name="Gold" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 335.0
+offset_right = 160.0
+offset_bottom = 362.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+text = "GOLD"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="Control/Gold"]
+layout_mode = 0
+offset_left = 105.0
+offset_right = 205.0
+offset_bottom = 27.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxLine_yxw1h")
+text = "888"
+vertical_alignment = 1
+
+[node name="Spells" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 370.0
+offset_right = 160.0
+offset_bottom = 397.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+text = "SPELLS"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="Control/Spells"]
+layout_mode = 0
+offset_left = 105.0
+offset_right = 205.0
+offset_bottom = 27.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxLine_yxw1h")
+text = "888"
+vertical_alignment = 1
+
+[node name="Armor" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 405.0
+offset_right = 160.0
+offset_bottom = 432.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+text = "ARMOR"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="Control/Armor"]
+layout_mode = 0
+offset_left = 105.0
+offset_right = 205.0
+offset_bottom = 27.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxLine_yxw1h")
+text = "888"
+vertical_alignment = 1
+
+[node name="Food" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 440.0
+offset_right = 160.0
+offset_bottom = 467.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+text = "FOOD"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="Control/Food"]
+layout_mode = 0
+offset_left = 105.0
+offset_right = 205.0
+offset_bottom = 27.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxLine_yxw1h")
+text = "888"
+vertical_alignment = 1
+
+[node name="BackToTitle" type="Button" parent="."]
+offset_left = 72.0
+offset_top = 647.0
+offset_right = 288.0
+offset_bottom = 711.0
+theme_override_fonts/font = ExtResource("2_vx5rh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_12glr")
+theme_override_styles/hover = ExtResource("3_toatm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dkgx5")
+text = "BACK TO TITLE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rrukk")
+}
+
+[connection signal="pressed" from="BackToTitle" to="." method="_on_back_to_title"]

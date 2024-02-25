@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxiewaiplxfs4"]
+
+[ext_resource type="Script" path="res://scenes/main/footer.gd" id="1_g4jv7"]
+[ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="2_ukkol"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8cpn"]
+content_margin_right = 16.0
+bg_color = Color(0, 0, 0, 0)
+
+[node name="Footer" type="Node2D"]
+script = ExtResource("1_g4jv7")
+
+[node name="Level" type="Label" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 752.0
+offset_right = 360.0
+offset_bottom = 800.0
+grow_vertical = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_ukkol")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j8cpn")
+text = "Level 1 : Black Sewers - Area 01
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="gui_input" from="Level" to="." method="_on_input"]

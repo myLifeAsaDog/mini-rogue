@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d212rlrw6nioe"]
+
+[ext_resource type="Script" path="res://scenes/card/boss.gd" id="1_t0te4"]
+[ext_resource type="Texture2D" uid="uid://deuwgdkkverss" path="res://assets/cards/Card_Boss.png" id="1_vse1t"]
+
+[node name="Boss" type="Node2D"]
+script = ExtResource("1_t0te4")
+
+[node name="BossCard" type="TextureRect" parent="."]
+offset_left = 68.0
+offset_top = 200.0
+offset_right = 292.0
+offset_bottom = 568.0
+texture = ExtResource("1_vse1t")
+
+[connection signal="gui_input" from="BossCard" to="." method="_on_input"]

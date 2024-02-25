@@ -1,0 +1,91 @@
+keys,en,ja
+MONSTER,MONSTER,モンスター
+TRAP,TRAP,罠
+EVENTS,EVENTS,イベント
+TREASURE,TREASURE,宝箱
+MERCHANT,MERCHANT,商人
+RESTING,RESTING,休憩
+SPELL_FIRE,Fireball Spell,炎の魔法
+SPELL_ICE,Ice Spell,氷の魔法
+SPELL_POISON,Poison Spell,毒の魔法
+SPELL_HEAL,Healing Spell,回復魔法
+ANY_SPELL,Any 1 Spell,任意の魔法
+ANY_POTION,Any Heal Potion,回復ポーション
+ARMOR_PIECE,Armor Piece,鎧のパーツ
+BETTER_WEAPON,Better Weapon,上質な武器
+FOUND_GOLD,Found %d Gold,%d ゴールドを発見した
+ENCOUNT_MERCHANT,Encountered a Merchant,行商人に遭遇した
+BUY,Buy,買う
+SELL,Sell,売る
+LEAVE_MERCHANT,Leave the Merchant,商人の元を去る
+CANCEL,Cancel,キャンセル
+NOT_MONEY,Not Enough Money,所持金が足りません
+NOT_HAVE_ANY,Don't have any %s,売れる%sが無い
+NOT_HAVE_ANY_SPELLS,Don't have any Spells,売れる魔法がない
+PARAMETER_LIMIT,%s is Already Maxed Out,%s は既に最大です
+SPELL_LIMIT,Spells is Already Maxed Out,魔法の所持数は既に最大です
+SPELL_DISCARD,Select a Spell to Discard,捨てる魔法を選択してください
+DROP_SPELL,Discarded %s,%s を捨てた
+GET_X_GOLD,Get %d Gold,%d Gold を入手した
+GET_X,Get %s,%s を入手した
+RATION,Ration,食料
+HEALTH_POTION,Health Potion,回復薬
+BIG_HEALTH_POTION,Big Health Potion,回復薬大
+MOLD_MIASMA,Mold Miasma,カビの瘴気
+TRIP_WIRE,Tripwire,足掛け罠
+ACID_MIST,Acid Mist,酸の霧
+SPRING_BLADES,Spring Blades,飛び出す刃
+AMNESIA_GAS,Amnesia Gas,記憶喪失ガス
+PIT,Pit,落とし穴
+ACTIVATE_TRAP,%s is Activated %s %d,%sが作動 %s %d
+TRAP_FOUND,Found a Trap,罠を発見した
+TRAP_DODGE,Dodged the Trap,罠の回避に成功した
+TRAP_FAILED,Failed to Avoid the Trap,罠の回避に失敗した
+TRAP_TRY,Try to Avoid the Trap,罠の回避を試みる
+FOUND_RATION,Found Ration,食料を発見
+FOUND_POTION,Found Health Potion,体力が回復
+FOUND_LOOT,Found Loot,財宝を発見
+FOUND_WHETSTONE,Found Whetstone,砥石を発見
+FOUND_SHIELD,Found Shield,盾を発見
+FOUND_X,Found %s,%s を発見した
+RANK_UP, Rank Increased,Rank が上がった
+RANK_DOWN, Rank Decreased,Rank が下がった
+RANDOM_EVENT,Random Event,ランダムイベント
+REST_WEAPON,Reinforce Weapon,武器の強化
+REST_RATION,Search for Ration,保存食を探す
+REST_HEAL,Heal,体力の回復
+ENCOUNT_MONSTER,Encountered Monster,モンスターに遭遇した
+ENCOUNT_BOSS,Encountered Boss of level,階層のボスに遭遇した
+GOTO_NEXT_AREA,Go to Next Area,次のエリアへ進む
+GOTO_NEXT_LEVEL,Go to Next Level,次の階層へ進む
+LOST_1_FOOD,Lost 1 Food,食料を 1 失いました
+LOST_2_HP,Lost 2 HP,体力を 2 失いました
+ATTACK,Attack,攻撃する
+USE_SPELL,Use Spell,魔法を使う
+NO_SPELL_USE,Don't Use Spell,魔法を使わない
+ENEMY_FROZEN,Enemy is Frozen,敵は凍っている
+TOOK_DAMAGE,Took %s Damages,%s のダメージを受けた
+DEAL_DAMAGE,Deal %d Damages,%d のダメージを与えた
+DEAL_DAMAGE_WITH_POISON,Deal %d Damages with Poison,毒と攻撃で %d のダメージを与えた
+ADDITIONAL_ATTACK_YES,Try Additional Attack,追加攻撃を試みる
+ADDITIONAL_ATTACK_NO,No Additional Attack,追加攻撃を行わない
+CRITICAL_FAILED,Additional Attacks Failed,追加攻撃に失敗した
+HEAL_8_HP,Recovered 8 HP,HPが 8 回復
+NO_SPELLS,Don't have the Spells,魔法を所持していない
+FROZE_ENEMY,Froze the Enemy,敵を凍らせた
+POISONED_ENEMY,Poisoned the Enemy,敵に毒を与えた
+ATTACK_FAILED,Attack Failed,攻撃に失敗した
+DEFEAT_ENEMY,Defeated the Enemy,敵を倒した
+GOLD_AND_XP,Get GOLD %d and XP %d,GOLD %d と XP %d を入手した
+UNDEAD_SOLDIER,Undead Soldier,死者の兵
+SKELETON,Skeleton,スケルトン
+UNDEAD_KNIGHT,Undead Knight,死者の騎士
+SERPENT_KNIGHT,Serpent Knight,蛇の騎士
+SANCTUM_GUARD,Sanctum Guard,オーグ神殿の衛兵
+UNDEAD_GIANT,Undead Giant,死者の巨人
+SKELETON_LORD,Skeleton Lord,スケルトンロード
+UNDEAD_LORD,Undead Lord,アンデッドロード
+SERPENT_DEMON,Serpent Demon,蛇の悪魔
+OG_REMAINS,Og's Remains,オーグの残滓
+CONQUEST_DUNGEON,Conquered the Dungeon,ダンジョンを制覇した
+GAME_OVER,The Adventurer Fell Mid-Journey...,冒険者は志半ばで倒れた…

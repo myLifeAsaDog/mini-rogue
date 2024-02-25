@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpjk4py41o2a0"]
+
+[ext_resource type="Script" path="res://scenes/first.gd" id="1_h1sc3"]
+[ext_resource type="Texture2D" uid="uid://crl17k1lawx3k" path="res://assets/cards/Card_GameStart.png" id="1_yinu4"]
+
+[node name="First" type="Node2D"]
+script = ExtResource("1_h1sc3")
+
+[node name="FirstCard" type="TextureRect" parent="."]
+offset_left = 68.0
+offset_top = 180.0
+offset_right = 292.0
+offset_bottom = 548.0
+texture = ExtResource("1_yinu4")
+
+[connection signal="gui_input" from="FirstCard" to="." method="_on_input"]

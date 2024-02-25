@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxqg4p4txqida"]
+
+[ext_resource type="Script" path="res://scenes/card/treasure.gd" id="1_4twcm"]
+[ext_resource type="Texture2D" uid="uid://prquhncklqfi" path="res://assets/cards/Card_Treasure.png" id="1_mh6ru"]
+
+[node name="Treasure" type="Node2D"]
+script = ExtResource("1_4twcm")
+
+[node name="TreasureCard" type="TextureRect" parent="."]
+offset_left = 68.0
+offset_top = 200.0
+offset_right = 292.0
+offset_bottom = 568.0
+texture = ExtResource("1_mh6ru")
+
+[connection signal="gui_input" from="TreasureCard" to="." method="_on_input"]

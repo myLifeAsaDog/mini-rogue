@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy48j1wojc2pj"]
+
+[ext_resource type="Texture2D" uid="uid://cimpapd26rndt" path="res://assets/cards/Card_Backface.png" id="1_2aad8"]
+[ext_resource type="Script" path="res://scenes/card/monster_battle.gd" id="1_dvvjf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4j3k1"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbmbd"]
+bg_color = Color(0.88, 0.42856, 0.1672, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="MonsterBattle" type="Node2D"]
+script = ExtResource("1_dvvjf")
+
+[node name="MonsterBattleCard" type="TextureRect" parent="."]
+offset_left = 68.0
+offset_top = 200.0
+offset_right = 292.0
+offset_bottom = 568.0
+texture = ExtResource("1_2aad8")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 56.0
+offset_top = 176.0
+offset_right = 304.0
+offset_bottom = 186.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4j3k1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bbmbd")
+step = 1.0
+show_percentage = false
+
+[connection signal="gui_input" from="MonsterBattleCard" to="." method="_on_input"]
