@@ -114,7 +114,7 @@ func add_two_cards(first_card: int, second_card: int) -> void:
 
 
 func _on_card_resolved(card_node: Card, next_node: String) -> void:
-	CardContainerNode.remove_child(card_node)
+	card_node.queue_free()
 
 	if not next_node:
 		if room_deck.size():

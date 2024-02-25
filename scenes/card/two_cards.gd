@@ -12,6 +12,7 @@ var ROOM_CARD: Array[Dictionary] = [
 @onready var first_id: int = get_meta('firstcard')
 @onready var second_id: int = get_meta('secondcard')
 
+var is_clicled: bool = false
 
 func _ready() -> void:
 	var _first_card: Dictionary = ROOM_CARD[first_id]
@@ -20,23 +21,18 @@ func _ready() -> void:
 	$FirstCard.texture = load(_first_card.image)
 	$SecondCard.texture = load(_second_card.image)
 
-	set_buttons(_first_card.name, on_first_button, Global.TWO_POSITIONS[0])
-	set_buttons(_second_card.name, on_second_button, Global.TWO_POSITIONS[1])
+	set_buttons(_first_card.name, card_selected.bind(first_id), Global.TWO_POSITIONS[0])
+	set_buttons(_second_card.name, card_selected.bind(second_id), Global.TWO_POSITIONS[1])
 
 	CardAnimeNode.play('card_and_button_in')
 
 
 func card_selected(selected_id: int) -> void:
+	if is_clicled: return
+
+	is_clicled = true
 	await remove_buttons()
 
 	Game.room_deck.push_back(selected_id)
 
 	card_resolved(self, 'card_slide_out', '')
-
-
-func on_first_button() -> void:
-	card_selected(first_id)
-
-
-func on_second_button() -> void:
-	card_selected(second_id)
