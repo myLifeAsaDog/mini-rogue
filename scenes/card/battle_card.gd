@@ -208,6 +208,7 @@ func use_spell(magic_id: String) -> void:
 
 			monster_hp += -8
 			Player.spell_fire += -1
+			change_progress_bar()
 
 			CardAnimeNode.play('card_shake')
 			await CardAnimeNode.animation_finished
