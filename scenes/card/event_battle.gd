@@ -8,7 +8,7 @@ var monster: Dictionary = { 'name': tr('MONSTER'), 'image': 'res://assets/cards/
 
 
 func _ready() -> void:
-	Player.in_battle = false
+	Player.no_heal = false
 
 	var _texture: CompressedTexture2D = load(monster.image)
 	EventBattleNode.texture = _texture
@@ -39,7 +39,7 @@ func get_xp() -> void:
 
 
 func battle_end() -> void:
-	Player.in_battle = false
+	Player.no_heal = false
 	Player.is_slayed_monsters = true
 
 	card_resolved(self, 'card_and_info_out', '')

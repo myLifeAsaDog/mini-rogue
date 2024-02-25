@@ -17,7 +17,7 @@ var BOSS: Array[Dictionary] = [
 
 
 func _ready() -> void:
-	Player.in_battle = true
+	Player.no_heal = true
 
 	_boss = BOSS[level]
 	var _texture: CompressedTexture2D = load(_boss.image)
@@ -56,7 +56,7 @@ func get_xp() -> void:
 
 
 func battle_end() -> void:
-	Player.in_battle = false
+	Player.no_heal = false
 	Player.boss_slayed += 1
 	Player.is_after_boss_flag = true
 

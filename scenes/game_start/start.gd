@@ -22,7 +22,7 @@ func game_start() -> void:
 			var _nodes: Array[Node] = _container.get_children()
 
 			for node in _nodes:
-				_container.remove_child(node)
+				node.queue_free()
 
 	Player.reset_status()
 

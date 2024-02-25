@@ -41,7 +41,7 @@ func _on_input(event: InputEvent) -> void:
 
 				set_buttons(tr('USE_SPELL'), set_spell.bind(false), Global.TWO_POSITIONS[0])
 				set_buttons(tr('NO_SPELL_USE'), set_spell.bind(true), Global.TWO_POSITIONS[1])
-				
+
 				CardAnimeNode.play('button_in')
 			Flags.DEFENCE_TURN:
 				await hide_message()
@@ -75,11 +75,11 @@ func deffence() -> void:
 		is_frozon = false
 	else:
 		if _damage > 0:
-			Player.hp += _damage * -1
+			Player.hp += _damage * - 1
 			CardAnimeNode.play('camera_shake')
 			await CardAnimeNode.animation_finished
 
-		show_message(tr('TOOK_DAMAGE') % _damage) 
+		show_message(tr('TOOK_DAMAGE') % _damage)
 
 	phase_flag = Flags.ATTACK_TURN
 
@@ -112,13 +112,13 @@ func critical_attack(is_critical: bool, dices: Array[int]) -> void:
 	var _is_critical_fail: bool = false
 
 	var _result: int = dices.reduce(attack_damage)
-	var _re_roll: Array[int] = dices.filter(func(item: int) -> bool:return item == 6)
+	var _re_roll: Array[int] = dices.filter(func(item: int) -> bool: return item == 6)
 
 	if is_critical:
 		for i in _re_roll.size():
 			var _additional_dice: int = randi() % 6
 
-			if _additional_dice == 0: 
+			if _additional_dice == 0:
 				_result += -6
 				_is_critical_fail = true
 			else:
@@ -144,7 +144,7 @@ func attack_run(result: int) -> void:
 
 	critical_failed_result = 0
 
-	monster_hp += result * -1
+	monster_hp += result * - 1
 
 	CardAnimeNode.play('card_shake')
 	await CardAnimeNode.animation_finished
@@ -202,7 +202,7 @@ func use_spell(magic_id: String) -> void:
 
 	match magic_id:
 		'spell_fire':
-			if not Player.spell_fire: 
+			if not Player.spell_fire:
 				show_message(tr('NO_SPELLS'))
 				return
 

@@ -102,6 +102,7 @@ func drop_spell() -> void:
 
 # 捨てる呪文を選択
 func check_spells() -> void:
+	Player.no_heal = true
 	await hide_message()
 
 	var _spells: Array[Dictionary] = Global.SPELLS.filter(func(item: Dictionary) -> bool: return Player.get(item.status) != 0)
@@ -122,6 +123,7 @@ func select_discard_spell(spell: Dictionary) -> void:
 	Player.set(spell.status, _status - 1)
 
 	show_message(tr('DROP_SPELL') % tr(spell.text))
+	Player.no_heal = false
 	treasure_flag = Flags.EXTRA_ITEM
 
 

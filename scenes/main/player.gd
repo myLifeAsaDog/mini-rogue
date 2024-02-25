@@ -26,7 +26,7 @@ const RANK: Array[Dictionary] = [
 var boss_slayed: int = 0
 
 # 戦闘中フラグ
-var in_battle: bool = false
+var no_heal: bool = false
 
 # Treasureカードのモンスター討伐判定用
 var is_slayed_monsters: bool = false
@@ -170,7 +170,7 @@ func _ready() -> void:
 
 
 func use_heal_spell() -> void:
-	if not spell_heal or in_battle: return
+	if not spell_heal or no_heal: return
 
 	hp += 8
 	spell_heal += -1

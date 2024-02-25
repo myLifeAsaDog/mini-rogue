@@ -50,7 +50,7 @@ func remove_buttons() -> Node:
 	var _buttons: Array[Node] = CardButtonNode.get_children()
 
 	for node in _buttons:
-		CardButtonNode.remove_child(node)
+		node.queue_free()
 
 	return self
 
@@ -62,7 +62,7 @@ func card_resolved(self_node: Card, animation_name: String, next_node: String) -
 
 
 func end_screen_on(card_node: Card) -> void:
-	CardContainerNode.remove_child(card_node)
+	card_node.queue_free()
 
 	GameEndNode.set_victory_point()
 	GameEndNode.get_node('AnimationPlayer').play('end_screen_in')

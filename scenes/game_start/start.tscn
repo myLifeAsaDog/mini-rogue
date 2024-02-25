@@ -308,7 +308,7 @@ offset_right = 106.0
 offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("3_734ki")
 theme_override_font_sizes/font_size = 14
-text = "version 1.0.4"
+text = "version 1.0.5"
 vertical_alignment = 1
 
 [node name="Card" type="Control" parent="."]

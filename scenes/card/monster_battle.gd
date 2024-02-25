@@ -16,7 +16,7 @@ var MONSTER: Array[Dictionary] = [
 
 
 func _ready() -> void:
-	Player.in_battle = true
+	Player.no_heal = true
 
 	_monster = MONSTER[level]
 	var _texture: CompressedTexture2D = load(_monster.image)
@@ -48,7 +48,7 @@ func get_xp() -> void:
 
 
 func battle_end() -> void:
-	Player.in_battle = false
+	Player.no_heal = false
 	Player.is_slayed_monsters = true
 
 	card_resolved(self, 'card_and_info_out', '')

@@ -30,6 +30,10 @@ func _on_input(event: InputEvent) -> void:
 
 				show_message(_message)
 
+				if Player.hp < 1:
+					card_resolved(self, 'card_and_info_out', 'GameOverNode')
+					return
+
 				resolve_flag = Flags.LOST_FOOD
 			Flags.LOST_FOOD:
 				card_resolved(self, 'card_and_info_out', '')
