@@ -214,7 +214,8 @@ func use_spell(magic_id: String) -> void:
 			await CardAnimeNode.animation_finished
 
 			show_message(tr('DEAL_DAMAGE') % 8)
-			phase_flag = Flags.DEFENCE_TURN
+
+			phase_flag = Flags.DEFEATED_ENEMY if monster_hp < 1 else Flags.DEFENCE_TURN
 		'spell_ice':
 			if not Player.spell_ice:
 				show_message(tr('NO_SPELLS'))
