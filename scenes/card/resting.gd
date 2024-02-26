@@ -44,5 +44,6 @@ func _on_input(event: InputEvent) -> void:
 				show_message(tr('RANK_UP'))
 				rest_flags = Flags.REST_END
 			Flags.REST_END:
+				rest_flags = Flags.NONE
 				await hide_message()
 				card_resolved(self, 'card_slide_out', '')

@@ -6,7 +6,7 @@ extends Node2D
 func _ready() -> void:
 	var _credit: String = ''
 
-	_credit += "[p]MINI ROGUE on Godot[/p]"
+	_credit += "[p]Mini Rogue Godot Edition[/p]"
 	_credit += "[p]\n[/p]"
 	_credit += "[p]this game based on mini rogue[/p]"
 	_credit += "[p]A 9-Card Print-and-Play Game version 1.2.1[/p]"

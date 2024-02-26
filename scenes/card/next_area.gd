@@ -20,6 +20,7 @@ func _ready() -> void:
 
 
 func _on_input(event: InputEvent) -> void:
+	if resolve_flag == Flags.NONE: return
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		match resolve_flag:
 			Flags.NEXT_LEVEL:
@@ -32,5 +33,6 @@ func _on_input(event: InputEvent) -> void:
 
 				resolve_flag = Flags.LOST_FOOD
 			Flags.LOST_FOOD:
+				resolve_flag = Flags.NONE
 				var _next_node: String = 'GameOverNode' if Player.hp < 1 else ''
 				card_resolved(self, 'card_and_info_out', _next_node)

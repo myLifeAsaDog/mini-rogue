@@ -3,6 +3,7 @@ class_name Game
 
 
 @onready var CardContainerNode: Node = $CardContainer / Cards
+var is_card_drawing: bool = false
 
 # CardNodes
 var MonsterCardNode: PackedScene = preload('res://scenes/card/monster.tscn')
@@ -75,6 +76,12 @@ func draw_card() -> void:
 
 	var _none_boss: Array[int] = room_deck.filter(func(item: int) -> bool: return item != 6)
 
+	# なぜかカードが消えていない場合があるので、この時点で存在していたら削除する
+	var _children: Array[Node] = CardContainerNode.get_children()
+
+	for _node in _children:
+		_node.queue_free()
+
 	# Display two cards
 	if _none_boss.size() == 4 or _none_boss.size() == 1:
 		var _next_card_num: int = room_deck.pop_back()
@@ -102,6 +109,8 @@ func add_card(card_node: PackedScene) -> void:
 	_new_card.resolved_card.connect(_on_card_resolved)
 	CardContainerNode.add_child(_new_card)
 
+	is_card_drawing = false
+
 
 func add_two_cards(first_card: int, second_card: int) -> void:
 	var _new_card: Node2D = TwoCardNode.instantiate()
@@ -112,9 +121,17 @@ func add_two_cards(first_card: int, second_card: int) -> void:
 	_new_card.resolved_card.connect(_on_card_resolved)
 	CardContainerNode.add_child(_new_card)
 
+	is_card_drawing = false
+
 
 func _on_card_resolved(card_node: Card, next_node: String) -> void:
+	# ここで連打を殺している
+	if is_card_drawing: return
+
+	is_card_drawing = true
+
 	card_node.queue_free()
+	await card_node.tree_exited
 
 	if not next_node:
 		if room_deck.size():

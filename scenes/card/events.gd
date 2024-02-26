@@ -86,6 +86,7 @@ func _on_input(event: InputEvent) -> void:
 				show_message(tr('RANK_UP'))
 				events_flag = Flags.EVENT_END
 			Flags.EVENT_END:
+				events_flag = Flags.NONE
 				await hide_message()
 				var _next_node: String = 'EventMonsterNode' if is_encount_monster else ''
 				card_resolved(self, 'card_and_info_out', _next_node)

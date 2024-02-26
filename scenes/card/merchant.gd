@@ -172,5 +172,6 @@ func trade_cansel() -> void:
 
 
 func leave_merchant() -> void:
+	is_merchant_flag = true
 	await remove_buttons()
 	card_resolved(self, 'card_and_info_out', '')

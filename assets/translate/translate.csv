@@ -66,9 +66,10 @@ NO_SPELL_USE,Don't Use Spell,魔法を使わない
 ENEMY_FROZEN,Enemy is Frozen,敵は凍っている
 TOOK_DAMAGE,Took %s Damages,%s のダメージを受けた
 DEAL_DAMAGE,Deal %d Damages,%d のダメージを与えた
-DEAL_DAMAGE_WITH_POISON,Deal %d Damages with Poison,毒と攻撃で %d のダメージを与えた
-ADDITIONAL_ATTACK_YES,Try Additional Attack,追加攻撃を試みる
-ADDITIONAL_ATTACK_NO,No Additional Attack,追加攻撃を行わない
+CHANCE_ADDITIONAL_ATTACK,Chance for Additional Attacks,追加攻撃のチャンス
+DEAL_POSITION_DAMAGE,Poisoning caused 5 Damage,毒で 5 のダメージを与えた
+ADDITIONAL_ATTACK_YES,Try Critical Attack,クリティカルを試みる
+ADDITIONAL_ATTACK_NO,Conduct Normal Attack,通常攻撃を行う
 CRITICAL_FAILED,Additional Attacks Failed,追加攻撃に失敗した
 HEAL_8_HP,Recovered 8 HP,HPが 8 回復
 NO_SPELLS,Don't have the Spells,魔法を所持していない

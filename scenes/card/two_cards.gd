@@ -12,7 +12,7 @@ var ROOM_CARD: Array[Dictionary] = [
 @onready var first_id: int = get_meta('firstcard')
 @onready var second_id: int = get_meta('secondcard')
 
-var is_clicled: bool = false
+var is_clicked: bool = false
 
 func _ready() -> void:
 	var _first_card: Dictionary = ROOM_CARD[first_id]
@@ -28,9 +28,9 @@ func _ready() -> void:
 
 
 func card_selected(selected_id: int) -> void:
-	if is_clicled: return
+	if is_clicked: return
 
-	is_clicled = true
+	is_clicked = true
 	await remove_buttons()
 
 	Game.room_deck.push_back(selected_id)

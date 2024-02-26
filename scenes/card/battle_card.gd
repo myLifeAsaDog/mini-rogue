@@ -1,18 +1,19 @@
 extends Card
 class_name BattleCard
 
+# 処理順は、通常ダメージ -> 追加攻撃 ->　毒ダメージ -> 魔法
 
 var level: int = Player.level - 1
 
 var monster_hp: int
 var monster_attack: int
 
-var critical_failed_result: int = 0
+var critical_dices: Array[int]
 
 var is_frozon: bool = false
 var is_poison: bool = false
 
-enum Flags { NONE, ATTACK_TURN, CRITICAL_FAILED, SPELL_TURN, DEFENCE_TURN, DEFEATED_ENEMY, GET_XP, RANK_UP, BATTLE_END }
+enum Flags { NONE, ATTACK_TURN, CRITICAL_ATTACK, CRITICAL_CHOICE, CRITICAL_FAILED, POISON_DAMAGE, SPELL_TURN, DEFENCE_TURN, DEFEATED_ENEMY, GET_XP, RANK_UP, BATTLE_END }
 var phase_flag: Flags = Flags.ATTACK_TURN
 
 
@@ -28,21 +29,24 @@ func _on_input(event: InputEvent) -> void:
 
 				set_buttons(tr('ATTACK'), attack, Global.ONE_POSITION)
 				CardAnimeNode.play('button_in')
-			Flags.CRITICAL_FAILED:
+			Flags.CRITICAL_ATTACK:
 				await hide_message()
-				attack_run(critical_failed_result)
+				show_message(tr('CHANCE_ADDITIONAL_ATTACK'))
+				phase_flag = Flags.CRITICAL_CHOICE
+			Flags.CRITICAL_CHOICE:
+				await hide_message()
+				set_critical()
+			Flags.POISON_DAMAGE:
+				await hide_message()
+
+				if is_poison:
+					poison_damage()
+				else:
+					spell_turn()
+
 			Flags.SPELL_TURN:
 				await hide_message()
-
-				var _spell_count: int = Player.spell_fire + Player.spell_ice + Player.spell_poison + Player.spell_heal
-				if not _spell_count:
-					deffence()
-					return
-
-				set_buttons(tr('USE_SPELL'), set_spell.bind(false), Global.TWO_POSITIONS[0])
-				set_buttons(tr('NO_SPELL_USE'), set_spell.bind(true), Global.TWO_POSITIONS[1])
-
-				CardAnimeNode.play('button_in')
+				spell_turn()
 			Flags.DEFENCE_TURN:
 				await hide_message()
 				deffence()
@@ -88,76 +92,96 @@ func attack() -> void:
 	await remove_buttons()
 
 	var _dices: Array[int] = []
-	var _is_critical: bool
 
 	for i in Player.rank:
 		var _dice: int = randi() % 6
-		_is_critical = _dice == 5
 
 		_dice = _dice + 1 if _dice > 0 else 0
 		_dices.append(_dice)
 
-	if _is_critical:
-		set_buttons(tr('ADDITIONAL_ATTACK_YES'), critical_attack.bind(true, _dices), Global.TWO_POSITIONS[0])
-		set_buttons(tr('ADDITIONAL_ATTACK_NO'), critical_attack.bind(false, _dices), Global.TWO_POSITIONS[1])
-		CardAnimeNode.play('button_in')
-	else:
-		var _result: int = _dices.reduce(attack_damage)
-		attack_run(_result)
+	var _normal_dices: Array[int] = _dices.filter(func(item: int) -> bool: return item < 6)
+	critical_dices = _dices.filter(func(item: int) -> bool: return item == 6)
+
+	var _result: int = _normal_dices.reduce(attack_damage)
+	attack_run(_result, critical_dices.size())
 
 
-func critical_attack(is_critical: bool, dices: Array[int]) -> void:
-	await remove_buttons()
-
-	var _is_critical_fail: bool = false
-
-	var _result: int = dices.reduce(attack_damage)
-	var _re_roll: Array[int] = dices.filter(func(item: int) -> bool: return item == 6)
-
-	if is_critical:
-		for i in _re_roll.size():
-			var _additional_dice: int = randi() % 6
-
-			if _additional_dice == 0:
-				_result += -6
-				_is_critical_fail = true
-			else:
-				_result += _additional_dice + 1
-
-	if _is_critical_fail and _result > 0:
-		critical_fail(_result)
-	else:
-		attack_run(_result)
-
-
-func critical_fail(result: int) -> void:
-	critical_failed_result = result
-	show_message(tr('CRITICAL_FAILED'))
-	phase_flag = Flags.CRITICAL_FAILED
-
-
-func attack_run(result: int) -> void:
+func attack_run(result: int, is_critical: bool) -> void:
 	if result <= 0:
 		show_message(tr('ATTACK_FAILED'))
-		phase_flag = Flags.SPELL_TURN
+		phase_flag = Flags.POISON_DAMAGE
 		return
 
-	critical_failed_result = 0
+	enemy_damages(result)
 
+	if monster_hp < 1:
+		phase_flag = Flags.DEFEATED_ENEMY
+	elif is_critical:
+		phase_flag = Flags.CRITICAL_ATTACK
+	else:
+		phase_flag = Flags.POISON_DAMAGE
+
+
+func enemy_damages(result: int) -> void:
 	monster_hp += result * - 1
 
 	CardAnimeNode.play('card_shake')
 	await CardAnimeNode.animation_finished
 
-	if is_poison:
-		monster_hp += -5
-		result += 5
-		show_message(tr('DEAL_DAMAGE_WITH_POISON') % result)
+	show_message(tr('DEAL_DAMAGE') % result)
+	change_progress_bar()
+
+
+func set_critical() -> void:
+	set_buttons(tr('ADDITIONAL_ATTACK_YES'), critical_attack.bind(true), Global.TWO_POSITIONS[0])
+	set_buttons(tr('ADDITIONAL_ATTACK_NO'), critical_attack.bind(false), Global.TWO_POSITIONS[1])
+	CardAnimeNode.play('button_in')
+
+
+func critical_attack(is_critical: bool) -> void:
+	await remove_buttons()
+
+	var _result: int = critical_dices.reduce(attack_damage)
+
+	if is_critical:
+		for i in critical_dices.size():
+			var _additional_dice: int = randi() % 6
+
+			if _additional_dice == 0:
+				_result += -6
+			else:
+				_result += _additional_dice + 1
+
+	if _result <= 0:
+		show_message(tr('CRITICAL_FAILED'))
 	else:
-		show_message(tr('DEAL_DAMAGE') % result)
+		enemy_damages(_result)
+
+	phase_flag = Flags.DEFEATED_ENEMY if monster_hp < 1 else Flags.POISON_DAMAGE
+
+
+func poison_damage() -> void:
+	monster_hp += -5
+
+	CardAnimeNode.play('card_shake')
+	await CardAnimeNode.animation_finished
+
+	show_message(tr('DEAL_POSITION_DAMAGE'))
 
 	change_progress_bar()
 	phase_flag = Flags.DEFEATED_ENEMY if monster_hp < 1 else Flags.SPELL_TURN
+
+
+func spell_turn() -> void:
+	var _spell_count: int = Player.spell_fire + Player.spell_ice + Player.spell_poison + Player.spell_heal
+	if not _spell_count:
+		deffence()
+		return
+
+	set_buttons(tr('USE_SPELL'), set_spell.bind(false), Global.TWO_POSITIONS[0])
+	set_buttons(tr('NO_SPELL_USE'), set_spell.bind(true), Global.TWO_POSITIONS[1])
+
+	CardAnimeNode.play('button_in')
 
 
 func attack_damage(accum: int, item: int) -> int:
