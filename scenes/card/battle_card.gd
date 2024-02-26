@@ -102,7 +102,7 @@ func attack() -> void:
 	var _normal_dices: Array[int] = _dices.filter(func(item: int) -> bool: return item < 6)
 	critical_dices = _dices.filter(func(item: int) -> bool: return item == 6)
 
-	var _result: int = _normal_dices.reduce(attack_damage)
+	var _result: int = _normal_dices.reduce(attack_damage) if _normal_dices.size() else 0
 	attack_run(_result, critical_dices.size())
 
 
