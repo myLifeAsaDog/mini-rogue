@@ -6,7 +6,7 @@ extends Node2D
 
 
 func set_victory_point() -> void:
-	var _difficulty: int = Player.difficulty * 2
+	var _difficulty: int = Player.difficulty * 10
 	var _area_reached: int = Player.area * 3
 	var _boss_slayed: int = Player.boss_slayed * 2
 

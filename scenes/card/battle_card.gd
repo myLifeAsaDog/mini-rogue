@@ -10,6 +10,7 @@ var monster_attack: int
 
 var critical_dices: Array[int]
 
+var is_failed: bool = false
 var is_frozon: bool = false
 var is_poison: bool = false
 
@@ -96,18 +97,29 @@ func attack() -> void:
 	for i in Player.rank:
 		var _dice: int = randi() % 6
 
-		_dice = _dice + 1 if _dice > 0 else 0
-		_dices.append(_dice)
+		if _dice > 0:
+			_dices.append(_dice + 1)
+		elif is_failed:
+			_dices.append(6)
+			is_failed = false
+		else:
+			_dices.append(0)
 
 	var _normal_dices: Array[int] = _dices.filter(func(item: int) -> bool: return item < 6)
 	critical_dices = _dices.filter(func(item: int) -> bool: return item == 6)
 
 	var _result: int = _normal_dices.reduce(attack_damage) if _normal_dices.size() else 0
-	attack_run(_result, critical_dices.size())
+
+	if _result == 0 and critical_dices:
+		show_message(tr('CHANCE_ADDITIONAL_ATTACK'))
+		phase_flag = Flags.CRITICAL_CHOICE
+	else:
+		attack_run(_result, critical_dices.size())
 
 
 func attack_run(result: int, is_critical: bool) -> void:
 	if result <= 0:
+		is_failed = true
 		show_message(tr('ATTACK_FAILED'))
 		phase_flag = Flags.POISON_DAMAGE
 		return
