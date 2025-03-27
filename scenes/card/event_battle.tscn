@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwaui2i4yoxsv"]
 
-[ext_resource type="Script" path="res://scenes/card/event_battle.gd" id="1_y5ym3"]
+[ext_resource type="Script" uid="uid://cfd1eybdbxrql" path="res://scenes/card/event_battle.gd" id="1_y5ym3"]
 [ext_resource type="Texture2D" uid="uid://cimpapd26rndt" path="res://assets/cards/Card_Backface.png" id="2_kujg1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qvvn"]

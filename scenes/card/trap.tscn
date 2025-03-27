@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3g4kjqs1al13"]
 
-[ext_resource type="Script" path="res://scenes/card/trap.gd" id="1_ejjfn"]
+[ext_resource type="Script" uid="uid://esmpqbs0fokd" path="res://scenes/card/trap.gd" id="1_ejjfn"]
 [ext_resource type="Texture2D" uid="uid://eakpkqvw7w86" path="res://assets/cards/Card_Trap.png" id="1_s6p27"]
 
 [node name="Trap" type="Node2D"]

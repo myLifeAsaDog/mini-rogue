@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxiewaiplxfs4"]
 
-[ext_resource type="Script" path="res://scenes/main/footer.gd" id="1_g4jv7"]
+[ext_resource type="Script" uid="uid://dr2hda5ygjayt" path="res://scenes/main/footer.gd" id="1_g4jv7"]
 [ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="2_ukkol"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8cpn"]

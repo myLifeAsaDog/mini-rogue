@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://eg25j2e1jl51"]
 
-[ext_resource type="Script" path="res://scenes/game_end/game_end.gd" id="1_2pi6p"]
+[ext_resource type="Script" uid="uid://dxo2nl14ds13a" path="res://scenes/game_end/game_end.gd" id="1_2pi6p"]
 [ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="2_vx5rh"]
 [ext_resource type="StyleBox" uid="uid://srmhut5l8qlq" path="res://assets/styles/start_button_hover.tres" id="3_toatm"]
 
@@ -18,9 +18,9 @@ grow_end = 0.0
 thickness = 0
 vertical = true
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_12glr"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dkgx5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_12glr"]
 
 [sub_resource type="Animation" id="Animation_trlci"]
 resource_name = "end_screen_in"
@@ -80,8 +80,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rrukk"]
 _data = {
-"end_screen_in": SubResource("Animation_trlci"),
-"end_screen_out": SubResource("Animation_0mk6v")
+&"end_screen_in": SubResource("Animation_trlci"),
+&"end_screen_out": SubResource("Animation_0mk6v")
 }
 
 [node name="End" type="Node2D"]
@@ -373,9 +373,9 @@ offset_top = 647.0
 offset_right = 288.0
 offset_bottom = 711.0
 theme_override_fonts/font = ExtResource("2_vx5rh")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_12glr")
-theme_override_styles/hover = ExtResource("3_toatm")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dkgx5")
+theme_override_styles/hover = ExtResource("3_toatm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_12glr")
 text = "BACK TO TITLE"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cms8wqnf0f5e0"]
 
-[ext_resource type="Script" path="res://addons/GDBeautifier/beauty.gd" id="1_0twy7"]
+[ext_resource type="Script" uid="uid://r8csybgev15w" path="res://addons/GDBeautifier/beauty.gd" id="1_0twy7"]
 
 [node name="GDBeautifier" type="VBoxContainer"]
 anchors_preset = 15

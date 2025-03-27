@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpjk4py41o2a0"]
 
-[ext_resource type="Script" path="res://scenes/card/first.gd" id="1_h1sc3"]
+[ext_resource type="Script" uid="uid://d0uu8wulpr2ix" path="res://scenes/card/first.gd" id="1_h1sc3"]
 [ext_resource type="Texture2D" uid="uid://crl17k1lawx3k" path="res://assets/cards/Card_GameStart.png" id="1_yinu4"]
 
 [node name="First" type="Node2D"]

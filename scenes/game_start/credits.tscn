@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cobvxme2tthib"]
 
-[ext_resource type="Script" path="res://scenes/game_start/credits.gd" id="1_lbkgy"]
+[ext_resource type="Script" uid="uid://blug8d3e7mmam" path="res://scenes/game_start/credits.gd" id="1_lbkgy"]
 [ext_resource type="Texture2D" uid="uid://dhmf1xaqaxt8c" path="res://assets/background/game start.png" id="2_ingfp"]
 [ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="3_xl8yp"]
 [ext_resource type="StyleBox" uid="uid://srmhut5l8qlq" path="res://assets/styles/start_button_hover.tres" id="4_bseys"]

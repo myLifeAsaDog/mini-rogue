@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dy48j1wojc2pj"]
 
 [ext_resource type="Texture2D" uid="uid://cimpapd26rndt" path="res://assets/cards/Card_Backface.png" id="1_2aad8"]
-[ext_resource type="Script" path="res://scenes/card/monster_battle.gd" id="1_dvvjf"]
+[ext_resource type="Script" uid="uid://br0ct8l61brdr" path="res://scenes/card/monster_battle.gd" id="1_dvvjf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4j3k1"]
 corner_radius_top_left = 4

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://pg0qpkbhvpq0"]
 
-[ext_resource type="Script" path="res://scenes/card/game_clear.gd" id="1_qpq4a"]
+[ext_resource type="Script" uid="uid://tcddki8gmtg" path="res://scenes/card/game_clear.gd" id="1_qpq4a"]
 [ext_resource type="Texture2D" uid="uid://cvhxrx2kipvfd" path="res://assets/cards/Card_Conquered.png" id="1_xranp"]
 
 [node name="GameClear" type="Node2D"]

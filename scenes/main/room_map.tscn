@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bgi5a07exjxef"]
 
-[ext_resource type="Script" path="res://scenes/main/room_map.gd" id="1_0nb38"]
+[ext_resource type="Script" uid="uid://bl4o1e0x73jm5" path="res://scenes/main/room_map.gd" id="1_0nb38"]
 [ext_resource type="Texture2D" uid="uid://c6igdsafh5yrv" path="res://assets/rooms/room_map.png" id="1_lg66f"]
 [ext_resource type="Texture2D" uid="uid://b3njsx0jsf42q" path="res://assets/rooms/visited_room.png" id="3_ci76w"]
 [ext_resource type="Texture2D" uid="uid://bp8kv0nib0t1n" path="res://assets/rooms/room.png" id="3_sdnyw"]

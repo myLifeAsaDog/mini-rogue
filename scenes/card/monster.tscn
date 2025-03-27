@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://qmycihjwx0q5"]
 
-[ext_resource type="Script" path="res://scenes/card/monster.gd" id="1_3hdlb"]
+[ext_resource type="Script" uid="uid://wvj1ylg0t10y" path="res://scenes/card/monster.gd" id="1_3hdlb"]
 [ext_resource type="Texture2D" uid="uid://dw7jdumth3xtx" path="res://assets/cards/Card_Monster.png" id="1_tdur4"]
 
 [node name="Monster" type="Node2D"]

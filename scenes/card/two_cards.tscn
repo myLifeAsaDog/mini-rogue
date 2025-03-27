@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cim3qsjpjgvp8"]
 
 [ext_resource type="Texture2D" uid="uid://cimpapd26rndt" path="res://assets/cards/Card_Backface.png" id="1_31oaj"]
-[ext_resource type="Script" path="res://scenes/card/two_cards.gd" id="1_aup6b"]
+[ext_resource type="Script" uid="uid://ilbkr0opwtsu" path="res://scenes/card/two_cards.gd" id="1_aup6b"]
 
 [node name="TwoCards" type="Node2D"]
 script = ExtResource("1_aup6b")

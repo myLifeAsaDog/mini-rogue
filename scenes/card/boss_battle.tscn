@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccic00gb1otde"]
 
-[ext_resource type="Script" path="res://scenes/card/boss_battle.gd" id="1_5k12h"]
+[ext_resource type="Script" uid="uid://ci6gkqwltowv4" path="res://scenes/card/boss_battle.gd" id="1_5k12h"]
 [ext_resource type="Texture2D" uid="uid://cimpapd26rndt" path="res://assets/cards/Card_Backface.png" id="2_sb5j4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivmxs"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2etd1wmbci1i"]
 
-[ext_resource type="Script" path="res://scenes/card/merchant.gd" id="1_0h6n7"]
+[ext_resource type="Script" uid="uid://clsxhfbpijx4x" path="res://scenes/card/merchant.gd" id="1_0h6n7"]
 [ext_resource type="Texture2D" uid="uid://dyrp4xiljunwb" path="res://assets/cards/Card_Merchant.png" id="1_l3mmv"]
 
 [node name="Merchant" type="Node2D"]

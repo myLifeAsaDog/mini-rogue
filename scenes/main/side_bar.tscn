@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b16x1pvvx2uwj"]
 
 [ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="1_lvlaj"]
-[ext_resource type="Script" path="res://scenes/main/side_bar.gd" id="1_u4v8l"]
+[ext_resource type="Script" uid="uid://tu1lsfy5snv2" path="res://scenes/main/side_bar.gd" id="1_u4v8l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ou65y"]
 
@@ -73,8 +73,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_udkxv"]
 _data = {
-"sidebar_slide_in": SubResource("Animation_5t5xa"),
-"sidebar_slide_out": SubResource("Animation_5je7d")
+&"sidebar_slide_in": SubResource("Animation_5t5xa"),
+&"sidebar_slide_out": SubResource("Animation_5je7d")
 }
 
 [node name="SideBar" type="Node2D"]

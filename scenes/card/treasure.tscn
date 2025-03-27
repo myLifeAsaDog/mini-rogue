@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxqg4p4txqida"]
 
-[ext_resource type="Script" path="res://scenes/card/treasure.gd" id="1_4twcm"]
+[ext_resource type="Script" uid="uid://i7iswu743qsf" path="res://scenes/card/treasure.gd" id="1_4twcm"]
 [ext_resource type="Texture2D" uid="uid://prquhncklqfi" path="res://assets/cards/Card_Treasure.png" id="1_mh6ru"]
 
 [node name="Treasure" type="Node2D"]

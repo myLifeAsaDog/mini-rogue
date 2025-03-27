@@ -4,7 +4,6 @@ extends BattleCard
 @onready var BossBattleNode: Node = $BossBattleCard
 @onready var VitalBarNode: Node = $ProgressBar
 
-var is_last_boss: bool = Player.area >= 14
 var _boss: Dictionary
 
 var BOSS: Array[Dictionary] = [
@@ -38,7 +37,7 @@ func change_progress_bar() -> void:
 
 
 func get_xp() -> void:
-	if is_last_boss:
+	if Player.area >= 14:
 		card_resolved(self, 'card_and_info_out', 'GameClearNode')
 		return
 

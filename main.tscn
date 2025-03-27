@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://bip2lpi1ddqjs"]
 
-[ext_resource type="Script" path="res://scenes/main/game.gd" id="1_7gdua"]
+[ext_resource type="Script" uid="uid://cti187p08c2sc" path="res://scenes/main/game.gd" id="1_7gdua"]
 [ext_resource type="Texture2D" uid="uid://b3vw55f7gd25i" path="res://assets/background/level_01.png" id="2_riepx"]
 [ext_resource type="PackedScene" uid="uid://vbjkv07d0gek" path="res://scenes/main/header.tscn" id="3_j75oi"]
 [ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="3_u1ok6"]
@@ -426,17 +426,17 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mohg1"]
 _data = {
-"button_in": SubResource("Animation_j4vjk"),
-"button_out": SubResource("Animation_d17vi"),
-"camera_shake": SubResource("Animation_q0ndr"),
-"card_and_button_in": SubResource("Animation_jf07g"),
-"card_and_info_in": SubResource("Animation_oloqu"),
-"card_and_info_out": SubResource("Animation_btr2w"),
-"card_shake": SubResource("Animation_le7rh"),
-"card_slide_in": SubResource("Animation_erc3i"),
-"card_slide_out": SubResource("Animation_l5upi"),
-"hide_info": SubResource("Animation_vwsbg"),
-"show_info": SubResource("Animation_gref5")
+&"button_in": SubResource("Animation_j4vjk"),
+&"button_out": SubResource("Animation_d17vi"),
+&"camera_shake": SubResource("Animation_q0ndr"),
+&"card_and_button_in": SubResource("Animation_jf07g"),
+&"card_and_info_in": SubResource("Animation_oloqu"),
+&"card_and_info_out": SubResource("Animation_btr2w"),
+&"card_shake": SubResource("Animation_le7rh"),
+&"card_slide_in": SubResource("Animation_erc3i"),
+&"card_slide_out": SubResource("Animation_l5upi"),
+&"hide_info": SubResource("Animation_vwsbg"),
+&"show_info": SubResource("Animation_gref5")
 }
 
 [node name="Main" type="Node"]

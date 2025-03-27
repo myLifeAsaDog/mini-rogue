@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://chcndcfv35huq"]
 
-[ext_resource type="Script" path="res://scenes/card/resting.gd" id="1_l042v"]
+[ext_resource type="Script" uid="uid://7ldb1aqhxieb" path="res://scenes/card/resting.gd" id="1_l042v"]
 [ext_resource type="Texture2D" uid="uid://c30x5n4qkcrvc" path="res://assets/cards/Card_Resting.png" id="2_fa03l"]
 
 [node name="Resting" type="Node2D"]

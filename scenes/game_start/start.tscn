@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://21rti4w1nduk"]
 
-[ext_resource type="Script" path="res://scenes/game_start/start.gd" id="1_bjq08"]
+[ext_resource type="Script" uid="uid://da7srt2dhr11j" path="res://scenes/game_start/start.gd" id="1_bjq08"]
 [ext_resource type="Texture2D" uid="uid://dhmf1xaqaxt8c" path="res://assets/background/game start.png" id="2_j73xs"]
 [ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="3_734ki"]
 [ext_resource type="StyleBox" uid="uid://srmhut5l8qlq" path="res://assets/styles/start_button_hover.tres" id="5_yk6ho"]
@@ -181,10 +181,10 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8cevt"]
 _data = {
-"back_to_title": SubResource("Animation_k83on"),
-"credits_hide": SubResource("Animation_4tq5a"),
-"credits_show": SubResource("Animation_jvs3h"),
-"game_start": SubResource("Animation_5svph")
+&"back_to_title": SubResource("Animation_k83on"),
+&"credits_hide": SubResource("Animation_4tq5a"),
+&"credits_show": SubResource("Animation_jvs3h"),
+&"game_start": SubResource("Animation_5svph")
 }
 
 [node name="Start" type="Node2D"]

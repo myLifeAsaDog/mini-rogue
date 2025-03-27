@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://brcl8lx5wwxd4"]
 
-[ext_resource type="Script" path="res://scenes/map/map.gd" id="1_13dhq"]
+[ext_resource type="Script" uid="uid://xltc4nvcmh3" path="res://scenes/map/map.gd" id="1_13dhq"]
 [ext_resource type="FontFile" uid="uid://c3nwmhnn8yokv" path="res://assets/NotoSansJP-Light.ttf" id="2_qdcl0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms7gj"]
@@ -44,8 +44,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6neda"]
 _data = {
-"slide_in": SubResource("Animation_180tl"),
-"slide_out": SubResource("Animation_wj8p6")
+&"slide_in": SubResource("Animation_180tl"),
+&"slide_out": SubResource("Animation_wj8p6")
 }
 
 [node name="Map" type="Node2D"]
